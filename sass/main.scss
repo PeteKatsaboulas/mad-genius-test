@@ -1,0 +1,225 @@
+@import "reset.scss";
+
+/* ———————————————————––
+Vars
+——————————————————————*/
+:root{
+    --max-width:1360px;
+    --gutter:68px;
+
+    --clr-white:#ffffff;
+    --clr-black:#000000;
+    --clr-yellow:#FFEE06;
+
+    --ff-primary:"Open Sans", sans-serif;
+    --ff-secondary:"Raleway", sans-serif;
+
+    --fs-base:1.6rem;
+    --fs-sm:2rem;
+    --fs-md:2.2rem;
+    --fs-lg:6.4rem;
+}
+/* ———————————————————––
+Type
+——————————————————————*/
+html{
+    font-size:62.5%;
+}
+
+body{
+    font-family:var(--ff-primary);
+    font-size:var(--fs-base);
+    line-height:1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; 
+    min-width:1360px;
+}
+
+h1, h2, h3{
+    font-family:var(--ff-secondary);
+    font-weight:700;
+    line-height:1;
+    text-transform: uppercase;
+}
+
+.fs--1{
+	font-size:var(--fs-lg);
+}
+.fs--2{
+	font-size:var(--fs-md);
+}
+.fs--3{
+	font-size:var(--fs-sm);
+}
+
+.fw--bold{
+	font-weight:700;
+}
+/* ———————————————————––
+Layout
+——————————————————————*/
+.wrapper{
+    width:min(var(--max-width), 100%);
+    margin-inline:auto;
+}
+.grid{
+    display:grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap:28px;
+}
+.grid__item{
+    grid-column: span 4;
+}
+/* ———————————————————––
+Button
+——————————————————————*/
+.btn--primary{
+	display:inline-block;
+	height:48px;
+    line-height:47px;
+	font-size:var(--fs-sm);
+	font-weight:700;
+	padding-inline:12px;
+	background-color:var(--clr-yellow);
+	border-radius:15px;
+}
+/* ———————————————————––
+Header
+——————————————————————*/
+header{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    height:178px;
+    padding-inline:var(--gutter);
+}
+/* ———————————————————––
+Nav
+——————————————————————*/
+.nav__list{
+    display:flex;
+    align-items: center;
+    gap:65px;
+}
+/* ———————————————————––
+Hero
+——————————————————————*/
+.hero{
+    position:relative;
+    height:432px;
+    color:var(--clr-white);
+}
+.hero__text{
+    z-index:1;
+    position:absolute;
+    bottom:70px;
+    padding-inline:var(--gutter);
+    h1{
+        text-transform: uppercase;  
+    }
+    p{
+        line-height:1;
+        margin-top:7px;
+    }
+}
+.hero__image{
+    position:relative;
+    height:100%;
+    img{
+        display:block;
+        width:100%;
+        height:100%;
+        object-fit: cover;
+        object-position: bottom;
+    }
+}
+/* ———————————————————––
+Offerings
+——————————————————————*/
+.offerings{
+    margin-top:43px;
+    padding-inline:var(--gutter);
+}
+.offering{
+    display:flex;
+    flex-direction: column;
+	align-items: start;
+    gap:30px;
+}
+.offering__heading{
+	position:relative;
+	width:100%;
+    height:239px;
+    background-color:var(--clr-black);
+    color:var(--clr-white);
+    h3{
+        position:absolute;
+        left:22px;
+        bottom:20px;
+    }
+}
+/* ———————————————————––
+Testimonials
+——————————————————————*/
+.testimonials{
+    position:relative;
+    width:100%;
+    height:412px;
+    margin-top:72px;
+    background:var(--clr-yellow) url("../images/texture.png") no-repeat center;
+    background-size:cover;
+}
+.testimonial{
+    display:flex;
+    flex-direction: column;
+    gap:48px;
+    align-items: center;
+    justify-content: center;
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    opacity:0;
+    transition:opacity 0.25s ease-out;
+    .quote{
+        width:min(550px, 100%);
+        margin-top:-18px;
+        text-align:center;
+        font-size:var(--fs-md);
+        line-height:1.8;
+    }
+    .client{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        line-height:1;
+        .title{
+            margin-top:10px;
+        }
+    }
+    &.active{
+        opacity:1;
+    }
+}
+/* ———————————————————––
+Slider nav
+——————————————————————*/
+.slider__nav{
+    position:absolute;
+    width:100%;
+    bottom:60px;
+    text-align:center;
+}
+.slider__nav-item{
+    display:inline-block;
+    width:14px;
+    height:14px;
+    border:2px solid var(--clr-black);
+    border-radius:50%;
+    margin-inline:9px;
+    cursor:pointer;
+    &.active{
+        background-color:var(--clr-black);
+    }
+}
